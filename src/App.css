@@ -1,38 +1,85 @@
-.App {
+.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h1{
+  font-size:large;
+  font-weight: 200;
+  padding-left: 30px;
+}
+
+.hspan{
+  background: linear-gradient(to right, #007F73 , #4CCD99);
+  border-radius: 5px;
+  color: aliceblue
+  
+}
+
+.signbtn{
+  margin-right: 10px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(to right, #007F73 , #4CCD99);
+  color: aliceblue;
+  font-size: 100;
+  padding: 6px;
+}
+
+:hover.signbtn{
+  cursor: pointer;
+}
+
+h2{
+  font-weight: 100;
+}
+
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+}
+
+.login-header {
+  display: flex;
+  justify-content: center;
+}
+
+.login-box {
+  width: 200px; 
+  height: 100px;
+  padding: 20px; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.userinput{
+  border: 0.5px solid;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.passinput{
+  border: 0.5px solid;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.user{
+  padding-top: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+.pass{
+  padding-top: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.loginbtn{
+  margin-top: 10px;
+  border: none;
+  border-radius: 5px;
+  background: linear-gradient(to right, #007F73 , #4CCD99);
+  color: aliceblue;
+  font-size: 100;
 }
+
+
+
+
