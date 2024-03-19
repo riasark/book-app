@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import LoginBox from './LoginBox';
+import Box from './LoginBox';
 import axios from 'axios';
+import { useUser } from './UserContext' 
 import { useNavigate } from 'react-router-dom';
 
 
@@ -9,6 +10,7 @@ function Login() {
     const [pass, setPass] = useState('');
     const [error, setError] = useState('');
     const navigate = useNavigate();
+    const { setUser: setGlobalUser } = useUser();
 
     async function checkAuth(ev){
         ev.preventDefault();
@@ -17,6 +19,7 @@ function Login() {
         .then(result => {
             console.log(result)
             if(result.data === "Success"){
+                setGlobalUser(user)
                 navigate('/home');
             }
         })
@@ -43,7 +46,7 @@ function Login() {
                 <div className="login-header">
                     <h2>Login</h2>
                 </div>
-                    <LoginBox>
+                    <Box>
                         <form onSubmit={checkAuth}>
                             <div className='user'>
                                 <input
@@ -71,7 +74,7 @@ function Login() {
                                 </button>
                             </div>
                         </form>  
-                    </LoginBox>
+                    </Box>
                 </div>
             </div>
             {error && <p className="error">{error}</p>}

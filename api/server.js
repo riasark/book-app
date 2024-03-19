@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
 const User = require('./models/Users');
+const BookList = require('./models/Books')
 const mongoose = require('mongoose');
 
 const app = express();
@@ -9,10 +10,9 @@ app.use(cors());
 app.use(express.json());
 const port = 3030;
 
-mongoose.connect(process.env.MONGO_URL);
-
 app.post('/login', async (req, res) => {
-  const {pass, user} = req.body;
+  await mongoose.connect(process.env.MONGO_URL);
+  const {user, pass} = req.body;
   User.findOne({user: user})
   .then(user => {
       if(user && user.pass === pass){
@@ -23,6 +23,14 @@ app.post('/login', async (req, res) => {
   }
   )
  })
+
+ app.get('/booklist', async (req, res) =>{
+  await mongoose.connect(process.env.MONGO_URL);
+  const { user } = req.query;
+
+  const books = await BookList.find({user: user});
+  res.json(books);
+})
 
 // Endpoint for fetching all users (just for testing purposes)
 app.get('/users', async (req, res) => {

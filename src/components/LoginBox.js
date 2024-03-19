@@ -1,6 +1,6 @@
 import React from 'react';
 
-function LoginBox({ children }) {
+function Box({ children }) {
   return (
     <div className="login-box">
       {children}
@@ -8,4 +8,4 @@ function LoginBox({ children }) {
   );
 }
 
-export default LoginBox;
+export default Box;
